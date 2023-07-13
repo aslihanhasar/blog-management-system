@@ -1,4 +1,6 @@
-export const users=[
+import { User } from "src/app/user/user"
+
+export const users:User[]=[
     {
       userId: 1,
       username: "aglassopp0",
