@@ -1,6 +1,6 @@
 export interface User {
     userId:number;
-    userName:string;
+    username:string;
     email:string;
     creationDate:string;
     isActive:Boolean;
