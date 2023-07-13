@@ -7,6 +7,7 @@ import { Component,EventEmitter,Input,Output } from '@angular/core';
 })
 export class ActionButtonComponent {
   @Input() text:String="";
+  @Input() id:Number=0;
   @Output() action:EventEmitter<void>=new EventEmitter<any>();
 
   performAction():void{
