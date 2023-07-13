@@ -1,4 +1,4 @@
-export const userPool=[
+export const users=[
     {
       userId: 1,
       username: "aglassopp0",
