@@ -1,11 +1,14 @@
-<table class="table">
+<h1>User List</h1>
+
+<table>
     <thead>
-        <tr>
-            <th>User ID</th>
-            <th>Username</th>
-            <th>email</th>
-            <th></th>
-            <th></th>
-        </tr>
+      <tr>
+        <th *ngFor="let column of tableColumns">{{ column | uppercase }}</th>
+      </tr>
     </thead>
-</table>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td *ngFor="let column of tableColumns">{{ user[column] }}</td>
+      </tr>
+    </tbody>
+  </table>
