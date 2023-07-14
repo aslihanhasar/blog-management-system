@@ -36,6 +36,12 @@ export class UserListComponent implements OnInit {
   }
 
   performSave(){
+
+    if(this.username == '' || this.email == '' || this.creationDate == '')
+    alert("All information must be filled.");
+    else if(this.userService.isDataUnique(this.username,this.email,this.userId) === false)
+    alert("Username or email not unique.");
+    else {
     const user: User = {
       userId: this.userId,
       username: this.username ,
@@ -45,7 +51,9 @@ export class UserListComponent implements OnInit {
     }
     this.userService.updateUser(user, this.userId);
     this.users = this.userService.getUsers();
-  }
+    this.performCancel();
+  } 
+ }
   
   performCancel(): void {
     this.updateMode= false;

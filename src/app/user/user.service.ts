@@ -43,7 +43,7 @@ export class UserService {
   }
 }
 
-  isDataUnique(username: string, email: string, id: number): boolean {
+  isDataUnique(username: string, email: string, id: Number): boolean {
     const lowerCaseUsername = username.toLowerCase();
     const lowerCaseEmail = email.toLowerCase();
 
