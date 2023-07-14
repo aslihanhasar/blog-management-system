@@ -17,12 +17,6 @@ export class UserService {
     return Object.keys(users[0]);
   }
  
-  deleteUser(id: Number):void {
-    const index = users.findIndex(u => u.userId === id);
-    if (index !== -1) {
-      users.splice(index, 1);
-    }
-  }
   getUserById(id: Number): User | undefined {
     return users.find(u => u.userId === id);
   }
@@ -35,10 +29,27 @@ export class UserService {
     return users.find(u=> u.email === email )
   }
 
+  deleteUser(id: Number):void {
+    const index = users.findIndex(u => u.userId === id);
+    if (index !== -1) {
+      users.splice(index, 1);
+    }
+  }
+
   updateUser(updatedUser: User, id: Number): void {
     const index = users.findIndex(u => u.userId === id);
     if (index !== -1) {
       users[index] = updatedUser;
   }
 }
+
+  isDataUnique(username: string, email: string, id: number): boolean {
+    const lowerCaseUsername = username.toLowerCase();
+    const lowerCaseEmail = email.toLowerCase();
+
+    const duplicateUsername = this.getUsers().find((user) => user.username.toLowerCase() === lowerCaseUsername && user.userId !== id);
+    const duplicateEmail = this.getUsers().find((user) => user.email.toLowerCase() === lowerCaseEmail && user.userId !== id);
+
+    return !duplicateUsername && !duplicateEmail;
+  }
 }
