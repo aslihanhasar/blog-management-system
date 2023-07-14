@@ -11,9 +11,9 @@
         <td *ngFor="let column of tableColumns">{{ user[column] }}</td>
         <td>
           
-          <app-action-button text="Delete" [id]="user.userId" (action)="performDelete($event)">
+          <app-action-button [text]="'Delete'" [id]="user.userId" (action)="performDelete($event)">
           </app-action-button>
-          <app-action-button text="Edit" [id]= "user.userId" (action)="performUpdate($event)">
+          <app-action-button [text]="'Edit'" [id]= "user.userId" (action)="performUpdate($event)">
           </app-action-button>
 
         </td>
@@ -34,5 +34,6 @@
     </select>
     <div class="buttons">
         <button (click)="performSave()" type="button" class="save-btn">Submit</button>
+        <button (click)="performCancel()" type="button" class="cancel-btn">Cancel</button>
     </div>
 </form>

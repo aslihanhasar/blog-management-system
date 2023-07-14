@@ -30,7 +30,7 @@ export class UserListComponent implements OnInit {
     this.users=this.userService.getUsers();
   }
 
-  performUpdate($event: Number){
+  performUpdate($event: Number):void{
     this.updateMode = true;
     this.userId = $event;
   }
@@ -47,5 +47,12 @@ export class UserListComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
   
+  performCancel(): void {
+    this.updateMode= false;
+    this.username = "";
+    this.email = "";
+    this.creationDate = "";
+    this.userId = 0;
+  }
   
 }
