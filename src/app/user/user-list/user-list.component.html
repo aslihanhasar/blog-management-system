@@ -12,10 +12,27 @@
         <td>
           
           <app-action-button text="Delete" [id]="user.userId" (action)="performDelete($event)">
-
+          </app-action-button>
+          <app-action-button text="Edit" [id]= "user.userId" (action)="performUpdate($event)">
           </app-action-button>
 
         </td>
       </tr>
     </tbody>
   </table>
+  <form *ngIf="updateMode" class="updateForm">
+    <label for="username">Username</label>
+    <input type="text" [(ngModel)]="username" name= "username" >
+    <label for="email">Email Address</label>
+    <input type="email" [(ngModel)]="email" name= "email" >
+    <label for="creationDate">Creation Date</label>
+    <input type="date" [(ngModel)]="creationDate" name= "creationDate" >
+    <label for="isActive">User Activation</label>
+    <select [(ngModel)]="isActive" name="isActive">
+        <option [value]="true"> Active </option>
+        <option [value]="false">Passive</option>
+    </select>
+    <div class="buttons">
+        <button (click)="performSave()" type="button" class="save-btn">Submit</button>
+    </div>
+</form>

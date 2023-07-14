@@ -7,6 +7,7 @@ import { users } from 'src/assets/userpool';
 })
 export class UserService {
 
+  private users:User[]=[]
 
   getUsers():User[]{
     return users;
@@ -24,5 +25,25 @@ export class UserService {
       users.splice(index, 1);
     }
   }
+  getUserById(id: Number): User | undefined {
+    return users.find(u => u.userId === id);
+  }
 
+  getUserByUsername(username: string): User| undefined{
+    return users.find(u=> u.username === username )
+  }
+
+  getUserByEmail(email: string): User| undefined{
+    return users.find(u=> u.email === email )
+  }
+
+  updateUser(updatedUser: User, id: Number): void {
+    this.users = this.users.map(u => {
+      if(u.userId === id)
+        u=updatedUser
+      return u;
+    });  
+  }
+
+  
 }
