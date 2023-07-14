@@ -17,5 +17,12 @@ export class UserService {
    getUserProperties(): string[] {
     return Object.keys(users[0]);
   }
-  
+ 
+  deleteUser(id: Number):void {
+    const index = users.findIndex(u => u.userId === id);
+    if (index !== -1) {
+      users.splice(index, 1);
+    }
+  }
+
 }

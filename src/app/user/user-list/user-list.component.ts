@@ -17,4 +17,9 @@ export class UserListComponent implements OnInit {
       this.users=this.userService.getUsers();
       this.tableColumns=this.userService.getUserProperties();
   }
+
+  performDelete($event: Number){
+    this.userService.deleteUser($event);
+    this.users=this.userService.getUsers();
+  }
 }

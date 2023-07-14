@@ -9,6 +9,13 @@
     <tbody>
       <tr *ngFor="let user of users">
         <td *ngFor="let column of tableColumns">{{ user[column] }}</td>
+        <td>
+          
+          <app-action-button text="Delete" [id]="user.userId" (action)="performDelete($event)">
+
+          </app-action-button>
+
+        </td>
       </tr>
     </tbody>
   </table>
