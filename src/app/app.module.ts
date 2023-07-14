@@ -13,9 +13,10 @@ import { ActionButtonComponent } from './action-button/action-button.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[ActionButtonComponent]
 })
 export class AppModule { }
