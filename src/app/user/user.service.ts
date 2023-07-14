@@ -7,8 +7,6 @@ import { users } from 'src/assets/userpool';
 })
 export class UserService {
 
-  private users:User[]=[]
-
   getUsers():User[]{
     return users;
   }
@@ -38,12 +36,9 @@ export class UserService {
   }
 
   updateUser(updatedUser: User, id: Number): void {
-    this.users = this.users.map(u => {
-      if(u.userId === id)
-        u=updatedUser
-      return u;
-    });  
+    const index = users.findIndex(u => u.userId === id);
+    if (index !== -1) {
+      users[index] = updatedUser;
   }
-
-  
+}
 }
