@@ -49,6 +49,13 @@ export class PostDetailComponent implements OnInit {
     this.navRoute.navigateByUrl('/posts');
   }
 
+  performDelete(){
+    if (this.post) {
+      this.postService.deletePost(this.post.postId);
+      this.navRoute.navigateByUrl('/posts');
+    }
+  }
+
   performEdit() {
     this.updateMode = !this.updateMode;
   }
