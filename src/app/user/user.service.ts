@@ -38,7 +38,14 @@ export class UserService {
     if (index !== -1) {
       users[index] = updatedUser;
   }
-}
+  }
+  generateUserId(): Number {
+    const users = this.getUsers();
+    const lastUser = users[users.length - 1];
+    const newUserId = +lastUser.userId + 1;
+    return newUserId;
+  }
+
 
   isDataUnique(username: string, email: string, id: Number): boolean {
     const lowerCaseUsername = username.toLowerCase();
