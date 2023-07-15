@@ -21,6 +21,10 @@ export class UserService {
     return users.length ;
     
   }
+
+  addUser(user: User): void {
+    users.push(user);
+  } 
  
   deleteUser(id: Number):void {
     const index = users.findIndex(u => u.userId === id);
