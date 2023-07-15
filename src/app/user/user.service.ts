@@ -18,15 +18,15 @@ export class UserService {
   }
  
   getUserById(id: Number): User | undefined {
-    return users.find(u => u.userId === id);
+    return this.getUsers().find(u => u.userId === id);
   }
 
   getUserByUsername(username: string): User| undefined{
-    return users.find(u=> u.username === username )
+    return this.getUsers().find(u=> u.username === username )
   }
 
   getUserByEmail(email: string): User| undefined{
-    return users.find(u=> u.email === email )
+    return this.getUsers().find(u=> u.email === email )
   }
 
   deleteUser(id: Number):void {
@@ -47,9 +47,11 @@ export class UserService {
     const lowerCaseUsername = username.toLowerCase();
     const lowerCaseEmail = email.toLowerCase();
 
-    const duplicateUsername = this.getUsers().find((user) => user.username.toLowerCase() === lowerCaseUsername && user.userId !== id);
-    const duplicateEmail = this.getUsers().find((user) => user.email.toLowerCase() === lowerCaseEmail && user.userId !== id);
-
-    return !duplicateUsername && !duplicateEmail;
+    if(this.getUsers().find((user) => user.username.toLowerCase()!==undefined && this.getUserByUsername(lowerCaseUsername)!.userId !== id)) 
+      return false;
+    else if(this.getUsers().find((user) => user.email.toLowerCase() !== undefined && this.getUserByEmail(lowerCaseEmail)!.userId !== id))
+      return false;
+    else
+      return true;
   }
 }
