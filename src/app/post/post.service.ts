@@ -17,6 +17,9 @@ export class PostService {
     return Object.keys(posts[0]);
   }
 
+  getPostById(id: number): Post | undefined {
+    return this.getPosts().find(post => post.postId === id);
+  }
   
   deletePost(id: Number):void {
     const index = posts.findIndex(p => p.postId === id);
