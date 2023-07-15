@@ -26,8 +26,15 @@ export class UserListComponent implements OnInit {
   }
 
   performDelete($event: Number){
-    this.userService.deleteUser($event);
-    this.users=this.userService.getUsers();
+    if(this.userService.getUserCount() === 1)
+      alert("Error. End user can not be deleted.")
+    /*else if (this.checkPostsAndComments($event) === true)
+      alert("You cannot delete a user with post or comment");
+      */
+    else {
+      this.userService.deleteUser($event);
+      this.users=this.userService.getUsers();
+  }
   }
 
   performUpdate($event: Number):void{
