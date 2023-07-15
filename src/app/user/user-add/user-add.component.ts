@@ -39,7 +39,7 @@ export class UserAddComponent {
     }
 
     this.userService.addUser(newUser);
-    this.router.navigateByUrl('/adduser');
+    this.router.navigateByUrl('/users');
   }
 
   performCancel(){
