@@ -22,6 +22,15 @@ export class UserService {
     
   }
 
+  setUsers(newUsers: User[]): void {
+    users.length = 0; 
+    users.push(...newUsers); 
+  }
+  
+  getUserById(id: Number): User | undefined {
+    return users.find((user)=> user.userId === Number(id) )
+  }
+
   addUser(user: User): void {
     users.push(user);
   } 
