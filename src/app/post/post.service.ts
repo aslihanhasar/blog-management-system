@@ -25,6 +25,10 @@ export class PostService {
   getPostById(id: number): Post | undefined {
     return this.getPosts().find(post => post.postId === id);
   }
+
+  addPost(post: Post) {
+    posts.push(post);
+  }
   
   deletePost(id: Number):void {
     const index = posts.findIndex(p => p.postId === id);
