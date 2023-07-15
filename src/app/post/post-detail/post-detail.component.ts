@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 import { UserService } from 'src/app/user/user.service';
@@ -10,25 +10,25 @@ import { User } from 'src/app/user/user';
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css']
 })
-export class PostDetailComponent implements OnInit{
+export class PostDetailComponent implements OnInit {
   post: Post | undefined;
   posts: Post[] = [];
   users: User[] = [];
+  updateMode: Boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private userService:UserService
-  )
-   {
-    if (this.userService.getUsers().length === 0)
-    {
-      const newUsers:User[]=[];
+    private userService: UserService,
+    private navRoute:Router
+  ) {
+    if (this.userService.getUsers().length === 0) {
+      const newUsers: User[] = [];
       this.userService.setUsers(newUsers);
     }
     else
       this.users = this.userService.getUsers();
-   }
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -39,8 +39,20 @@ export class PostDetailComponent implements OnInit{
     });
   }
 
-  
+  performSave() {
 
-  
+    if (!this.post) {
+      return;
+    }
+    this.postService.updatePost(this.post);
+    this.posts = this.postService.getPosts();
+    this.navRoute.navigateByUrl('/posts');
+  }
 
+  performEdit() {
+    this.updateMode = !this.updateMode;
+  }
 }
+
+
+
