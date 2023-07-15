@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-user-add',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-add.component.css']
 })
 export class UserAddComponent {
+
+  user: User = {
+    userId: 0,
+    username:"",
+    email: "",
+    creationDate:"",
+    isActive: false
+  }
+
+  
 
 }
