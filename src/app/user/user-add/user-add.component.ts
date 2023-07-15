@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-add',
@@ -17,7 +18,7 @@ export class UserAddComponent {
     isActive: false
   }
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private router:Router) {}
 
   performCreate(){
     if (this.user.username === '' || this.user.email === '' || this.user.creationDate === '') {
@@ -38,12 +39,10 @@ export class UserAddComponent {
     }
 
     this.userService.addUser(newUser);
+    this.router.navigateByUrl('/adduser');
   }
 
   performCancel(){
-
+    this.router.navigateByUrl("/users");
   }
-
-
-
 }
