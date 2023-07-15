@@ -1,34 +1,19 @@
 <h1>Post Detail</h1>
-<div *ngIf="post" class="post-card">
-  <div class="post-detail">
-      <div class="header">
-          <p>{{this.post.postId}}</p>
-          <h1>{{post.title | uppercase }}</h1>
-      </div>
-      <div class="content">
-          <h2>Post Content</h2>
-          <p>{{post.content}}</p>
-      </div>
-      <div class="footer">
-          <div>
-              <h2>Date</h2>
-              <p>{{post.creationDate}}</p>
-          </div>
-          <div>
-            <h2>Author Name / User Id</h2>
-            <p>{{users[+post.userId - 1].username}}</p>
-            <p>userId: {{post.userId}}</p>
-        </div>
-          <div>
-              <h2>View Count</h2>
-              <p>{{post.viewCount}}</p>
-          </div>
-          <div>
-              <h2>Is Published</h2>
-              <p>{{post.isPublished}}</p>
-          </div>
-      </div>
+
+<div *ngIf="post" class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title | uppercase }}</h5>
+    <p class="card-text">{{ post.content }}</p>
   </div>
+  
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Post ID: {{ post.postId }}</li>
+    <li class="list-group-item">Author Name: {{ users[+post.userId - 1]?.username }}</li>
+    <li class="list-group-item">User ID: {{ post.userId }}</li>
+    <li class="list-group-item">Date: {{ post.creationDate }}</li>
+    <li class="list-group-item">View Count: {{ post.viewCount }}</li>
+    <li class="list-group-item">Is Published: {{ post.isPublished }}</li>
+  </ul>
 </div>
 
 <button [routerLink]="'/posts'">Go back</button>
