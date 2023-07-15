@@ -1,1 +1,9 @@
-<p>post-detail works!</p>
+<h1>Post Detail</h1>
+
+<div *ngIf="post">
+  <h2>Title: {{ post.title }}</h2>
+  <p>Content: {{ post.content }}</p>
+  <p>View Count: {{ post.viewCount }}</p>
+  <p>Creation Date: {{ post.creationDate }}</p>
+  <p>Published: {{ post.isPublished }}</p>
+</div>
