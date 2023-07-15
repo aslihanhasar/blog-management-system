@@ -1,4 +1,5 @@
 export interface Post {
+    [key: string]: any;
     postId: Number,
     userId: Number,
     categoryId: Number,
