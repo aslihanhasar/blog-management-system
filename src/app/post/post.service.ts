@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Post } from './post';
-import { postpool } from 'src/assets/postpool';
+import { posts } from 'src/assets/postpool';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private posts: Post[] = [];
-
-  constructor() {}
-
-  getPosts(): Post[] {
-    return this.posts;
+  
+  getPosts():Post[]{
+    return posts;
   }
 
-  setPosts(): void {
-    this.posts = postpool;
+  constructor() { }
+
+   getUserProperties(): string[] {
+    return Object.keys(posts[0]);
   }
+
 }

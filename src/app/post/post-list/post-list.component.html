@@ -1,1 +1,18 @@
-<p>post-list works!</p>
+<h1>Post List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td *ngFor="let column of tableColumns">{{ column }}</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts">
+            <td>{{post.postId}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.viewCount}}</td>
+            <td>{{post.creationDate}}</td>
+            <td>{{post.isPublished}}</td>
+        </tr>
+    </tbody>
+</table>

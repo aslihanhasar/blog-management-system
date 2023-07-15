@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
+import { PostModule } from './post/post.module';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({

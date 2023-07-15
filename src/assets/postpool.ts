@@ -1,4 +1,6 @@
-export const postpool = [
+import { Post } from "src/app/post/post"
+
+export const posts:Post[] = [
     {
         postId: 1,
         userId: 19,
