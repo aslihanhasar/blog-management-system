@@ -33,4 +33,10 @@ export class PostService {
     }
   }
 
+  generatePostId(): Number {
+    const posts = this.getPosts();
+    const lastPost = posts[posts.length - 1];
+    const newPostId = +lastPost.postId + 1;
+    return newPostId;
+  }
 }
