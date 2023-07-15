@@ -6,6 +6,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { FormsModule } from '@angular/forms';
 import { AppModule } from '../app.module';
 import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     PostListComponent,

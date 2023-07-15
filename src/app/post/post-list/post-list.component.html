@@ -13,6 +13,8 @@
             <td>{{post.viewCount}}</td>
             <td>{{post.creationDate}}</td>
             <td>{{post.isPublished}}</td>
+            <app-action-button [text]="'Details'" [id]= "post.postId" (action)="performDetail($event)"></app-action-button>
+            <app-action-button [text]="'Delete'" [id]= "post.postId" (action)="performDelete($event)" ></app-action-button>
         </tr>
     </tbody>
 </table>

@@ -17,4 +17,12 @@ export class PostService {
     return Object.keys(posts[0]);
   }
 
+  
+  deletePost(id: Number):void {
+    const index = posts.findIndex(p => p.postId === id);
+    if (index !== -1) {
+      posts.splice(index, 1);
+    }
+  }
+
 }
