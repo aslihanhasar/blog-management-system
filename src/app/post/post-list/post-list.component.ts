@@ -13,7 +13,16 @@ export class PostListComponent implements OnInit {
   posts: Post[] = [];
   tableColumns:string[]=[];
 
-  constructor(private postService:PostService,private router:Router ) {}
+  constructor(
+    private postService:PostService,
+    private router:Router ) 
+    {
+      if(this.postService.getPosts().length==0){
+        const newPosts:Post[]=[];
+        this.postService.setPosts(newPosts);
+      }
+      this.posts = this.postService.getPosts();
+    }
 
   ngOnInit(): void {
     this.posts = this.postService.getPosts();
