@@ -11,9 +11,14 @@ export class PostService {
     return posts;
   }
 
+  setPosts(newPosts: Post[]): void {
+    posts.length = 0;
+    posts.push(...newPosts);
+  }
+
   constructor() { }
 
-   getUserProperties(): string[] {
+   getPostProperties(): string[] {
     return Object.keys(posts[0]);
   }
 

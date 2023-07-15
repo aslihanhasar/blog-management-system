@@ -21,11 +21,6 @@ export class UserService {
     return users.length ;
     
   }
-
-  setUsers(newUsers: User[]): void {
-    users.length = 0; 
-    users.push(...newUsers); 
-  }
   
   getUserById(id: Number): User | undefined {
     return users.find((user)=> user.userId === Number(id) )
@@ -35,6 +30,11 @@ export class UserService {
     users.push(user);
   } 
  
+  setUsers(newUsers: User[]): void {
+    users.length = 0; 
+    users.push(...newUsers); 
+  }
+
   deleteUser(id: Number):void {
     const index = users.findIndex(u => u.userId === id);
     if (index !== -1) {
