@@ -43,4 +43,11 @@ export class PostService {
     const newPostId = +lastPost.postId + 1;
     return newPostId;
   }
+
+  updatePost(updatedPost: Post, id: Number){
+    const index = posts.findIndex(p => p.postId === id);
+    if (index !== -1) {
+      posts[index] = updatedPost;
+  }
+}
 }
