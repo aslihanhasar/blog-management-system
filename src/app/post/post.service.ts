@@ -44,10 +44,11 @@ export class PostService {
     return newPostId;
   }
 
-  updatePost(updatedPost: Post, id: Number){
-    const index = posts.findIndex(p => p.postId === id);
+  updatePost(updatedPost: Post) {
+    const index = posts.findIndex(p => p.postId === post.postId);
     if (index !== -1) {
       posts[index] = updatedPost;
+    }
   }
-}
+  
 }
