@@ -45,7 +45,7 @@ export class PostService {
   }
 
   updatePost(updatedPost: Post) {
-    const index = posts.findIndex(p => p.postId === post.postId);
+    const index = posts.findIndex(p => p.postId === updatedPost.postId);
     if (index !== -1) {
       posts[index] = updatedPost;
     }
