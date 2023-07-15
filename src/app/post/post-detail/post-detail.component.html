@@ -14,7 +14,11 @@
               <h2>Date</h2>
               <p>{{post.creationDate}}</p>
           </div>
-        
+          <div>
+            <h2>Author Name / User Id</h2>
+            <p>{{users[+post.userId - 1].username}}</p>
+            <p>userId: {{post.userId}}</p>
+        </div>
           <div>
               <h2>View Count</h2>
               <p>{{post.viewCount}}</p>
