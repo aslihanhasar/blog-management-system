@@ -1,9 +1,29 @@
 <h1>Post Detail</h1>
-
-<div *ngIf="post">
-  <h2>Title: {{ post.title }}</h2>
-  <p>Content: {{ post.content }}</p>
-  <p>View Count: {{ post.viewCount }}</p>
-  <p>Creation Date: {{ post.creationDate }}</p>
-  <p>Published: {{ post.isPublished }}</p>
+<div *ngIf="post" class="post-card">
+  <div class="post-detail">
+      <div class="header">
+          <p>{{this.post.postId}}</p>
+          <h1>{{post.title | uppercase }}</h1>
+      </div>
+      <div class="content">
+          <h2>Post Content</h2>
+          <p>{{post.content}}</p>
+      </div>
+      <div class="footer">
+          <div>
+              <h2>Date</h2>
+              <p>{{post.creationDate}}</p>
+          </div>
+        
+          <div>
+              <h2>View Count</h2>
+              <p>{{post.viewCount}}</p>
+          </div>
+          <div>
+              <h2>Is Published</h2>
+              <p>{{post.isPublished}}</p>
+          </div>
+      </div>
+  </div>
 </div>
+
