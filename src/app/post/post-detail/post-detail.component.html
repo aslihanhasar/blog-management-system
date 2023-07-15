@@ -8,7 +8,7 @@
   
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Post ID: {{ post.postId }}</li>
-    <li class="list-group-item">Author Name: {{ users[+post.userId - 1]?.username }}</li>
+    <li class="list-group-item">Author Name: {{ users[+post.userId - 1].username }}</li>
     <li class="list-group-item">User ID: {{ post.userId }}</li>
     <li class="list-group-item">Date: {{ post.creationDate }}</li>
     <li class="list-group-item">View Count: {{ post.viewCount }}</li>
