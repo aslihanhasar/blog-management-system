@@ -1,49 +1,63 @@
-<h1>User List</h1>
-
-<table class="table">
-    <thead>
-      <tr>
-        <td *ngFor="let column of tableColumns">{{ column }}</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of pagedData">
-        <td *ngFor="let column of tableColumns">{{ user[column] }}</td>
-        <td>
-          
-          <app-action-button [text]="'Delete'" [id]="user.userId" (action)="performDelete($event)">
-          </app-action-button>
-          <app-action-button [text]="'Edit'" [id]= "user.userId" (action)="performUpdate($event)">
-          </app-action-button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="addButton">
-    <button routerLink="/adduser">Add User</button>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center">User List</h1>
+    </div>
   </div>
 
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <table class="table table-bordered table-no-border  table-hover mt-4">
+        <thead>
+          <tr>
+            <td *ngFor="let column of tableColumns">{{ column }}</td>
+            <td class="text-center">Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of pagedData">
+            <td *ngFor="let column of tableColumns">{{ user[column] }}</td>
+            <td>
+              <app-action-button  [text]="'Delete'" [id]="user.userId"
+                (action)="performDelete($event)"></app-action-button>
+              <app-action-button  [text]="'Edit'" [id]="user.userId"
+                (action)="performUpdate($event)"></app-action-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <div class="pagination" *ngIf="totalPages > 0">
+        <button class="btn btn-secondary" [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+        <span>{{ currentPage }}</span>
+        <button class="btn btn-secondary" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+      </div>
+    </div>
+    <div class="col-md-6 text-right">
+      <div class="addButton">
+        <button routerLink="/adduser" class="btn btn-success">Add User</button>
+      </div>
+    </div>
+  </div>
 
   <form *ngIf="updateMode" class="updateForm">
     <label for="username">Username</label>
-    <input type="text" [(ngModel)]="username" name= "username" >
+    <input type="text" [(ngModel)]="username" name="username">
     <label for="email">Email Address</label>
-    <input type="email" [(ngModel)]="email" name= "email" >
+    <input type="email" [(ngModel)]="email" name="email">
     <label for="creationDate">Creation Date</label>
-    <input type="date" [(ngModel)]="creationDate" name= "creationDate" >
+    <input type="date" [(ngModel)]="creationDate" name="creationDate">
     <label for="isActive">User Activation</label>
     <select [(ngModel)]="isActive" name="isActive">
-        <option [value]="true"> Active </option>
-        <option [value]="false">Passive</option>
+      <option [value]="true">Active</option>
+      <option [value]="false">Passive</option>
     </select>
     <div class="buttons">
-        <button (click)="performSave()" type="button" class="save-btn">Submit</button>
-        <button (click)="performCancel()" type="button" class="cancel-btn">Cancel</button>
+      <button (click)="performSave()" type="button" class="save-btn">Submit</button>
+      <button (click)="performCancel()" type="button" class="cancel-btn">Cancel</button>
     </div>
-</form>
-
-<div class="pagination" *ngIf="totalPages > 0">
-  <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
-  <span>{{ currentPage }}</span>
-  <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
-</div>
+  </form>

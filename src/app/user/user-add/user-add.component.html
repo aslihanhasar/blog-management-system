@@ -1,17 +1,26 @@
 <form class="addForm">
-    <label for="username">Username</label>
-    <input type="text" [(ngModel)]="user.username" name="username">
-    <label for="email">Email Adress</label>
-    <input type="text" [(ngModel)]="user.email" name="email">
-    <label for="creationDate">Creation Date</label>
-    <input type="date" [(ngModel)]="user.creationDate" name="creationDate">
-    <label for="userState">User Activation</label>
-    <select [(ngModel)]="user.isActive" name="userState">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" [(ngModel)]="user.username" name="username" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="text" [(ngModel)]="user.email" name="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="creationDate">Creation Date</label>
+      <input type="date" [(ngModel)]="user.creationDate" name="creationDate" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="userState">User Activation</label>
+      <select [(ngModel)]="user.isActive" name="userState" class="form-control">
         <option [value]="true">Active</option>
         <option [value]="false">Passive</option>
-    </select>
-    <div class="buttons">
-        <button type="button" (click)="performCreate()" class="save-btn">Create</button>
-        <button type="button" (click)="performCancel()" class="cancel-btn">Cancel</button>
+      </select>
     </div>
-</form>
+    <div class="buttons">
+      <button type="button" (click)="performCreate()" class="btn btn-primary">Create</button>
+      <button type="button" (click)="performCancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+  

@@ -1,0 +1,15 @@
+.table-no-border td,
+.table-no-border th {
+    border: none;
+}
+.btn{
+    background-color: #383c39;
+
+}
+
+.btn :hover,
+.addbutton:hover
+.table:hover{
+    opacity: 0.8;
+    background-color: #aca6a6;
+}
