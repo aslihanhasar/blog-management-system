@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let post of posts">
+        <tr *ngFor="let post of pagedData">
             <td>{{post.postId}}</td>
             <td>{{post.title}}</td>
             <td>{{post.viewCount}}</td>
@@ -18,5 +18,11 @@
         </tr>
     </tbody>
 </table>
+
+<div class="pagination" *ngIf="totalPages > 0">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+    <span>{{ currentPage }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+  </div>
 
 <button [routerLink]="'/postadd'">Add Post</button>
