@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of pagedData">
         <td *ngFor="let column of tableColumns">{{ user[column] }}</td>
         <td>
           
@@ -41,3 +41,9 @@
         <button (click)="performCancel()" type="button" class="cancel-btn">Cancel</button>
     </div>
 </form>
+
+<div class="pagination" *ngIf="totalPages > 0">
+  <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+  <span>{{ currentPage }}</span>
+  <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+</div>
