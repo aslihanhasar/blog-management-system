@@ -1,1 +1,16 @@
-<p>category-list works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let column of tableColumns">{{ column }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories">
+            <td>{{category.categoryId}}</td>
+            <td>{{category.name}}</td>
+            <td>{{category.creationDate}}</td>
+            <app-action-button [text]="'Detail'" [id]= "category.categoryId" (action)="performDetails($event)"></app-action-button>
+            <app-action-button [text]="'Delete'" [id]= "category.categoryId" (action)="performDelete($event)" ></app-action-button>tr>
+        </tr>
+    </tbody>
+</table>
