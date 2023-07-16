@@ -1,1 +1,30 @@
-<p>comment-detail works!</p>
+<div *ngIf="comment" class="card">
+    <div class="card-header">
+      <h5>Comment Details</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Comment ID:</strong> {{ comment.commentId }}</p>
+          <p><strong>Post ID:</strong> {{ comment.postId }}</p>
+          <p><strong>User ID:</strong> {{ comment.userId }}</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Content</h5>
+          <p>{{ comment.comment }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Creation Date</h5>
+          <p>{{ comment.creationDate }}</p>
+        </div>
+        <div class="col-md-6">
+          <h5>Is Confirmed</h5>
+          <p>{{ comment.isConfirmed }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <button type="button" routerLink="/comments">Return</button>
