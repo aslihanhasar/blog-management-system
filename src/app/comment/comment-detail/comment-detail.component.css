@@ -1,33 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 .category-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px auto;
-    max-width: 600px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .category-detail .header {
-    text-align: center;
-    margin-bottom: 16px;
-  }
-  
-  .category-detail .header h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .category-detail .content {
-    margin-bottom: 16px;
-  }
-  
-  .category-detail .content h2 {
-    font-size: 18px;
-    margin: 8px 0;
-  }
-  
-  .return-button {
-    display: block;
-    margin: 16px auto;
-  }
-  
+  width: 400px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-detail {
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  width: 50%;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.return-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}

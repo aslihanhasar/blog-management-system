@@ -1,32 +1,34 @@
-Copy code
-<div *ngIf="comment" class="category-card">
-  <div class="category-detail">
-    <div class="header">
-      <p><strong>Comment ID:</strong> {{ comment.commentId }}</p>
-      <h1>Comment Details</h1>
-    </div>
-    <div class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <p><strong>Post ID:</strong> {{ comment.postId }}</p>
-          <p><strong>User ID:</strong> {{ comment.userId }}</p>
-        </div>
-        <div class="col-md-6">
-          <h2>Content</h2>
-          <p>{{ comment.comment }}</p>
-        </div>
+<div *ngIf="comment" class="container">
+  <div class="category-card">
+    <div class="category-detail">
+      <div class="header">
+        <p><strong>Comment ID:</strong> {{ comment.commentId }}</p>
+        <h1>Comment Details</h1>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <h2>Creation Date</h2>
-          <p>{{ comment.creationDate }}</p>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Post ID:</strong> {{ comment.postId }}</p>
+            <p><strong>User ID:</strong> {{ comment.userId }}</p>
+          </div>
+          <div class="col-md-6">
+            <h2>Content</h2>
+            <p>{{ comment.comment }}</p>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h2>Is Confirmed</h2>
-          <p>{{ comment.isConfirmed }}</p>
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Creation Date</h2>
+            <p>{{ comment.creationDate }}</p>
+          </div>
+          <div class="col-md-6">
+            <h2>Is Confirmed</h2>
+            <p>{{ comment.isConfirmed }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <button type="button" routerLink="/comments" class="return-button">Return</button>
+</div>
