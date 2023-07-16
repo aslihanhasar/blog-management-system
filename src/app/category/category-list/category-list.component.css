@@ -1,0 +1,38 @@
+.table-no-border td,
+.table-no-border th {
+    border: none;
+}
+
+.btn-primary {
+    border-radius: 10px;
+    background-color: #85a5c6;
+    color: #ffffff;
+    border: none;
+    margin-left: 30px;
+}
+
+.btn-danger {
+    border-radius: 10px;
+    background-color: #bb525d;
+    color: #ffffff;
+    border: none;
+    margin-left: 10px;
+}
+
+.btn-success {
+    background-color: #383c39;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-danger:hover,
+.btn-success:hover,
+.btn-secondary:hover .table:hover {
+    opacity: 0.8;
+    background-color: #aca6a6;
+}

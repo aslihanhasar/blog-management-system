@@ -1,35 +1,65 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th *ngFor="let column of tableColumns">{{ column }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let category of pagedData">
-            <td>{{category.categoryId}}</td>
-            <td>{{category.name}}</td>
-            <td>{{category.creationDate}}</td>
-            <app-action-button [text]="'Detail'" [id]= "category.categoryId" (action)="performDetails($event)"></app-action-button>
-            <app-action-button [text]="'Delete'" [id]= "category.categoryId" (action)="performDelete($event)" ></app-action-button>
-        </tr>
-    </tbody>
-</table>
-
-<button (click)="performAddCategory()">Add Category</button>
-
-<form *ngIf="addCategoryForm">
-    <label for="name">Name</label>
-    <input type="text" [(ngModel)]="name" name="name">
-    <label for="creationDate">Creation Date</label>
-    <input type="date" [(ngModel)]="creationDate" name="creationDate">
-    <div>
-      <button type="button" (click)="performSave()">Save</button>
-      <button type="button" (click)="performCancel()">Cancel</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">Category List</h1>
+        </div>
     </div>
-  </form>
-  
-  <div class="pagination" *ngIf="totalPages > 0">
-    <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
-    <span>{{ currentPage }}</span>
-    <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
-  </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table table-bordered table-no-border  table-hover mt-4">
+                <thead class="table-custom-header">
+                    <tr>
+                        <th *ngFor="let column of tableColumns">{{ column }}</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let category of pagedData; let i = index;">
+                        <tr [class.table-row-odd]="i % 2 === 0" [class.table-row-even]="i % 2 !== 0">
+                            <td>{{ category.categoryId }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>{{ category.creationDate }}</td>
+                            <td class="text-center">
+                                <button class="btn btn-primary mx-1"
+                                    (click)="performDetails(category.categoryId)">Detail</button>
+                                <button class="btn btn-danger mx-1"
+                                    (click)="performDelete(category.categoryId)">Delete</button>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <form *ngIf="addCategoryForm" class="form-container">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="name" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="creationDate">Creation Date</label>
+          <input type="date" [(ngModel)]="creationDate" name="creationDate" class="form-control">
+        </div>
+        <div class="button-container my-3">
+          <button class="btn btn-primary" type="button" (click)="performSave()">Save</button>
+          <button class="btn btn-secondary" type="button" (click)="performCancel()">Cancel</button>
+        </div>
+      </form>
+      
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            <div class="pagination" *ngIf="totalPages > 0">
+                <button class="btn btn-secondary " [disabled]="currentPage === 1"
+                    (click)="previousPage()">Previous</button>
+                <span class="current-page">{{ currentPage }}</span>
+                <button class="btn btn-secondary" [disabled]="currentPage === totalPages"
+                    (click)="nextPage()">Next</button>
+            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-success my-3" (click)="performAddCategory()">Add Category</button>
+        </div>
+    </div>
+</div>
