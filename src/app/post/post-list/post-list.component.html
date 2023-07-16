@@ -1,20 +1,42 @@
 <h1>Post List</h1>
 
+<div>
+    <label for="userId">User ID:</label>
+    <input type="number" id="userId" [(ngModel)]="userId" (ngModelChange)="filterPosts()">
+</div>
+
+<div>
+    <label for="postId">Post ID:</label>
+    <input type="number" id="postId" [(ngModel)]="postId" (ngModelChange)="filterPosts()">
+</div>
+
+<div>
+    <label for="categoryId">Category ID:</label>
+    <input type="number" id="categoryId" [(ngModel)]="categoryId" (ngModelChange)="filterPosts()">
+</div>
+
+<div>
+    <button (click)="filterPosts()">Filter</button>
+    <button (click)="clearFilters()">Clear Filters</button>
+</div>
+
 <table class="table">
     <thead>
         <tr>
-            <td *ngFor="let column of tableColumns">{{ column }}</td>
+            <th *ngFor="let column of tableColumns">{{ column }}</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let post of pagedData">
-            <td>{{post.postId}}</td>
-            <td>{{post.title}}</td>
-            <td>{{post.viewCount}}</td>
-            <td>{{post.creationDate}}</td>
-            <td>{{post.isPublished}}</td>
-            <app-action-button [text]="'Details'" [id]= "post.postId" (action)="performDetail($event)"></app-action-button>
-            <app-action-button [text]="'Delete'" [id]= "post.postId" (action)="performDelete($event)" ></app-action-button>
+            <td>{{ post.postId }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.viewCount }}</td>
+            <td>{{ post.creationDate }}</td>
+            <td>{{ post.isPublished }}</td>
+            <app-action-button [text]="'Details'" [id]="post.postId"
+                (action)="performDetail(post.postId)"></app-action-button>
+            <app-action-button [text]="'Delete'" [id]="post.postId"
+                (action)="performDelete(post.postId)"></app-action-button>
         </tr>
     </tbody>
 </table>
@@ -23,6 +45,6 @@
     <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
     <span>{{ currentPage }}</span>
     <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
-  </div>
+</div>
 
 <button [routerLink]="'/postadd'">Add Post</button>
