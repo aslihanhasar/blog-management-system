@@ -10,7 +10,7 @@
             <td>{{category.name}}</td>
             <td>{{category.creationDate}}</td>
             <app-action-button [text]="'Detail'" [id]= "category.categoryId" (action)="performDetails($event)"></app-action-button>
-            <app-action-button [text]="'Delete'" [id]= "category.categoryId" (action)="performDelete($event)" ></app-action-button>tr>
+            <app-action-button [text]="'Delete'" [id]= "category.categoryId" (action)="performDelete($event)" ></app-action-button>
         </tr>
     </tbody>
 </table>
