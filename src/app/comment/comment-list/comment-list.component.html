@@ -20,8 +20,11 @@
     </tbody>
 </table>
 
+<button type="button" routerLink="/addcomment">Add Comment</button>
+
 <div class="pagination" *ngIf="totalPages > 0">
     <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
     <span>{{ currentPage }}</span>
     <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
 </div>
+
