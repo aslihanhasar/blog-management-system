@@ -1,27 +1,73 @@
-# BlogManagementSystem
+# BLOG MANAGEMENT SYSTEM
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+### This project is an Angular application that demonstrates the usage of components, services, and routing in Angular framework.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## PROJECT DETAILS
 
-## Code scaffolding
+The project structure is organized as follows:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `src/app`: This directory contains the Angular components, services, and other related files.
+- `src/assets`: This directory contains static assets such as images or stylesheets.
 
-## Build
+Here is an overview of the important files and directories:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- `src/app/components`: This directory contains the Angular components used in the application.
+- `src/app/services`: This directory contains the Angular services that provide data and functionality to the components.
+- `src/app/models`: This directory contains the data models used in the application.
+- `src/app/app-routing.module.ts`: This file defines the routing configuration for the application.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
 
-## Running end-to-end tests
+Clone the project.
+> https://github.com/aslihanhasar/array-practices.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Usage
+After cloning the project, open it with the ide you used.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+cd angular-project
+code .
+```
+
+Install the project dependencies using npm:
+
+```
+npm install
+
+```
+---
+
+## Author
+**Aslıhan Hasar**
+
+* GitHub: [aslihanhasar](https://github.com/aslihanhasar)
+* LinkedIn: [aslıhanhasar](https://www.linkedin.com/in/asl%C4%B1hanhasar
+  )
+---
+
+## Contributing
+Contributions, issues, and feature requests are welcome.
+
+---
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+---
+
+## Show Your Suport
+Give me a &#11088; if you like the project.
+
+---
+
+## Acknowledgments
+* This repo is created for assignments at Allianz & Patika.dev.
+
+
