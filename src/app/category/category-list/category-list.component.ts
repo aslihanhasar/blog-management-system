@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-list',
@@ -13,6 +14,7 @@ export class CategoryListComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
+    private router: Router
   ) {
     if (this.categoryService.getCategories().length == 0) {
       const newCategories: Category[] = [];
@@ -27,11 +29,13 @@ export class CategoryListComponent implements OnInit {
   }
 
   performDelete($event:Number){
-  
+    this.categoryService.deleteCategory($event);
+    this.categories=this.categoryService.getCategories();
+
   }
 
   performDetails($event:Number){
-
+    this.router.navigate(['categorylist', $event]);
   }
 
 }
