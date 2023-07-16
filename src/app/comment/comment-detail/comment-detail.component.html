@@ -1,30 +1,32 @@
-<div *ngIf="comment" class="card">
-    <div class="card-header">
-      <h5>Comment Details</h5>
+Copy code
+<div *ngIf="comment" class="category-card">
+  <div class="category-detail">
+    <div class="header">
+      <p><strong>Comment ID:</strong> {{ comment.commentId }}</p>
+      <h1>Comment Details</h1>
     </div>
-    <div class="card-body">
+    <div class="content">
       <div class="row">
         <div class="col-md-6">
-          <p><strong>Comment ID:</strong> {{ comment.commentId }}</p>
           <p><strong>Post ID:</strong> {{ comment.postId }}</p>
           <p><strong>User ID:</strong> {{ comment.userId }}</p>
         </div>
         <div class="col-md-6">
-          <h5>Content</h5>
+          <h2>Content</h2>
           <p>{{ comment.comment }}</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <h5>Creation Date</h5>
+          <h2>Creation Date</h2>
           <p>{{ comment.creationDate }}</p>
         </div>
         <div class="col-md-6">
-          <h5>Is Confirmed</h5>
+          <h2>Is Confirmed</h2>
           <p>{{ comment.isConfirmed }}</p>
         </div>
       </div>
     </div>
   </div>
-  
-  <button type="button" routerLink="/comments">Return</button>
+
+  <button type="button" routerLink="/comments" class="return-button">Return</button>

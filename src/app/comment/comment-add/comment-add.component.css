@@ -1,0 +1,30 @@
+.comment-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .comment-form .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .comment-form label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .comment-form .form-control {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .comment-form .btn-primary {
+    margin-right: 8px;
+  }
+  
+  .comment-form .btn-secondary {
+    background-color: #ccc;
+    border-color: #ccc;
+  }
+  

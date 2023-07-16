@@ -1,23 +1,33 @@
-<form>
-    <label for="comment">Comment</label>
-    <input type="text" [(ngModel)]="comment.comment" name= "comment" >
-    <label for="user">User</label>
-    <select [(ngModel)]="comment.userId" name="user">
-        <option *ngFor="let user of users" [value]="user.userId">{{user.username}}</option>
-    </select>
-    <label for="post">Post</label>
-    <select [(ngModel)]="comment.postId" name="post">
-        <option *ngFor="let post of posts" [value]="post.postId">{{post.title}}</option>
-    </select>
-    <label for="creationDate">Creation Date</label>
-    <input type="date" [(ngModel)]="comment.creationDate" name="creationDate">
-    <label for="isConfirmed">Confirmation State</label>
-    <select [(ngModel)]="comment.isConfirmed" name="isConfirmed">
-        <option [value]="true"> Confirmed </option>
-        <option [value]="false">Not Confirmed</option>
-    </select>
-    <div>
-        <button (click)="performSave()" type="button">Save</button>
-        <button (click)="performCancel()" type="button">Cancel</button>
+<form class="comment-form">
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input type="text" [(ngModel)]="comment.comment" name="comment" class="form-control">
     </div>
-</form>
+    <div class="form-group">
+      <label for="user">User</label>
+      <select [(ngModel)]="comment.userId" name="user" class="form-control">
+        <option *ngFor="let user of users" [value]="user.userId">{{ user.username }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="post">Post</label>
+      <select [(ngModel)]="comment.postId" name="post" class="form-control">
+        <option *ngFor="let post of posts" [value]="post.postId">{{ post.title }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="creationDate">Creation Date</label>
+      <input type="date" [(ngModel)]="comment.creationDate" name="creationDate" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="isConfirmed">Confirmation State</label>
+      <select [(ngModel)]="comment.isConfirmed" name="isConfirmed" class="form-control">
+        <option [value]="true">Confirmed</option>
+        <option [value]="false">Not Confirmed</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button (click)="performSave()" type="button" class="btn btn-primary">Save</button>
+      <button (click)="performCancel()" type="button" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
