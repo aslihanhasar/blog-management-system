@@ -9,6 +9,10 @@ export class CommentService {
 
   constructor() { }
 
+  getCommentProperties(): string[] {
+    return Object.keys(comments[0]);
+  }
+
   getComments():Comment[]{
     return comments;
   }
