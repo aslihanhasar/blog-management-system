@@ -1,30 +1,55 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th *ngFor="let column of tableColumns">{{ column }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let comment of pagedData">
-            <td>{{ comment.commentId }}</td>
-            <td>{{ comment.postId }}</td>
-            <td>{{ comment.userId }}</td>
-            <td>{{ comment.comment }}</td>
-            <td>{{ comment.creationDate }}</td>
-            <td>{{ comment.isConfirmed }}</td>
-            <app-action-button [text]="'Details'" [id]="comment.commentId"
-                (action)="performDetail($event)"></app-action-button>
-            <app-action-button [text]="'Delete'" [id]="comment.commentId"
-                (action)="performDelete($event)"></app-action-button>
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h1>Comment List</h1>
+        </div>
 
-<button type="button" routerLink="/addcomment">Add Comment</button>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <table class="table table-bordered table-no-border  table-hover mt-4">
+                    <thead class="table-custom-header">
+                        <tr>
+                            <th *ngFor="let column of tableColumns">{{ column }}</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let comment of pagedData">
+                            <td>{{ comment.commentId }}</td>
+                            <td>{{ comment.postId }}</td>
+                            <td>{{ comment.userId }}</td>
+                            <td>{{ comment.comment }}</td>
+                            <td>{{ comment.creationDate }}</td>
+                            <td>{{ comment.isConfirmed }}</td>
+                            <td>
+                                <app-action-button [text]="'Details'" [id]="comment.commentId"
+                                    (action)="performDetail($event)"></app-action-button>
+                                <app-action-button [text]="'Delete'" [id]="comment.commentId"
+                                    (action)="performDelete($event)"></app-action-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-<div class="pagination" *ngIf="totalPages > 0">
-    <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
-    <span>{{ currentPage }}</span>
-    <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            <div class="pagination" *ngIf="totalPages > 0">
+                <button class="btn btn-secondary" [disabled]="currentPage === 1"
+                    (click)="previousPage()">Previous</button>
+                <span>{{ currentPage }}</span>
+                <button class="btn btn-secondary" [disabled]="currentPage === totalPages"
+                    (click)="nextPage()">Next</button>
+            </div>
+        </div>
+
+        <div class="col-md-6 text-right ">
+            <div class="addButton">
+                <button routerLink="/addcomment" class="btn btn-success">Add Comment</button>
+            </div>
+        </div>
+    </div>
 </div>
-

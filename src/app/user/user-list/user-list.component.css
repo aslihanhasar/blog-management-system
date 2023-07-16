@@ -2,9 +2,8 @@
 .table-no-border th {
     border: none;
 }
-.btn{
+.btn-success{
     background-color: #383c39;
-
 }
 
 .btn :hover,
