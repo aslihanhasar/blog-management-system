@@ -1,6 +1,6 @@
 export interface Category {
     [key: string]: any;
-    categoryId: number,
+    categoryId: Number,
     name: string,
     creationDate: string
 }

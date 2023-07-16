@@ -15,9 +15,21 @@
     </tbody>
 </table>
 
+<button (click)="performAddCategory()">Add Category</button>
 
-<div class="pagination" *ngIf="totalPages > 0">
+<form *ngIf="addCategoryForm">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)]="name" name="name">
+    <label for="creationDate">Creation Date</label>
+    <input type="date" [(ngModel)]="creationDate" name="creationDate">
+    <div>
+      <button type="button" (click)="performSave()">Save</button>
+      <button type="button" (click)="performCancel()">Cancel</button>
+    </div>
+  </form>
+  
+  <div class="pagination" *ngIf="totalPages > 0">
     <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
     <span>{{ currentPage }}</span>
     <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
-</div>
+  </div>
