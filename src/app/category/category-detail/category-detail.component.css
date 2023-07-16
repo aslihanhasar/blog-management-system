@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .category-card {
+    width: 400px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-detail {
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .category-id {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .category-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .creation-date-label {
+    font-size: 18px;
+    font-weight: normal;
+  }
+  
+  .creation-date {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .footer {
+    margin-top: 20px;
+  }
+  
+  .category-info {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .form-container {
+    width: 400px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  

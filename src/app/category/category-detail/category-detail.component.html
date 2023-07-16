@@ -1,32 +1,38 @@
-<div class="category-card">
+<div class="container">
+  <div class="category-card">
     <div class="category-detail">
       <div class="header">
-        <p>{{ category.categoryId }}</p>
-        <h1>{{ category.name | uppercase }}</h1>
+        <p class="category-id">Category ID: {{ category.categoryId }}</p>
+        <h1 class="category-name">{{ 'Category Name: ' + category.name }}</h1>
       </div>
       <div class="content">
-        <h2>Creation Date</h2>
-        <p>{{ category.creationDate }}</p>
+        <h2 class="creation-date">Creation Date: {{ category.creationDate }}</h2>
       </div>
       <div class="footer">
         <div>
-          <p>{{ category.name }} contains {{ postCount }} posts.</p>
+          <p class="category-info">{{ category.name }} contains {{ postCount }} posts.</p>
         </div>
       </div>
     </div>
   </div>
-  
-  <button (click)="performEdit()">Edit</button>
-  <button [routerLink]="'/category'">Return</button>
-  
-  <form *ngIf="updateMode">
-    <label for="name">Name</label>
-    <input type="text" [(ngModel)]="updatedName" name="name">
-    <label for="creationDate">Creation Date</label>
-    <input type="date" [(ngModel)]="updatedCreationDate" name="creationDate">
-    <div>
-      <button type="button" (click)="performSave()">Save</button>
-      <button type="button" (click)="performCancel()">Cancel</button>
+
+  <div class="button-container">
+    <button class="btn btn-primary" (click)="performEdit()">Edit</button>
+    <button class="btn btn-secondary" [routerLink]="'/category'">Return</button>
+  </div>
+
+  <form *ngIf="updateMode" class="form-container">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="updatedName" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="creationDate">Creation Date</label>
+      <input type="date" [(ngModel)]="updatedCreationDate" name="creationDate" class="form-control">
+    </div>
+    <div class="button-container">
+      <button class="btn btn-primary" type="button" (click)="performSave()">Save</button>
+      <button class="btn btn-secondary" type="button" (click)="performCancel()">Cancel</button>
     </div>
   </form>
-  
+</div>
