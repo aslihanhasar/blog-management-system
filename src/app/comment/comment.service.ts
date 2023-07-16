@@ -32,5 +32,12 @@ export class CommentService {
       comments.splice(index, 1);
     }
   }
+
+  generateCommentId(): Number {
+    const comments = this.getComments();
+    const lastComment = comments[comments.length - 1];
+    const newCommentId = +lastComment.commentId + 1;
+    return newCommentId;
+  }
   
 }
