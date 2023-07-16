@@ -1,1 +1,27 @@
-<p>comment-list works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let column of tableColumns">{{ column }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let comment of pagedData">
+            <td>{{ comment.commentId }}</td>
+            <td>{{ comment.postId }}</td>
+            <td>{{ comment.userId }}</td>
+            <td>{{ comment.comment }}</td>
+            <td>{{ comment.creationDate }}</td>
+            <td>{{ comment.isConfirmed }}</td>
+            <app-action-button [text]="'Details'" [id]="comment.commentId"
+                (action)="performDetail($event)"></app-action-button>
+            <app-action-button [text]="'Delete'" [id]="comment.commentId"
+                (action)="performDelete($event)"></app-action-button>
+        </tr>
+    </tbody>
+</table>
+
+<div class="pagination" *ngIf="totalPages > 0">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+    <span>{{ currentPage }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+</div>

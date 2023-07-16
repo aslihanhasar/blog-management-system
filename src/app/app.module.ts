@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
 import { CategoryModule } from './category/category.module';
+import { CommentModule } from './comment/comment.module';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({

@@ -19,6 +19,6 @@ import { AppModule } from '../app.module';
     FormsModule,
     RouterModule,
     AppModule
-  ]
+  ],
 })
 export class CommentModule { }
