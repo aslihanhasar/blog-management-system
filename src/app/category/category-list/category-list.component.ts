@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
   tableColumns: string[] = [];
+  pagedData: Category[] = [];
+  currentPage = 1;
+  dataPerPage = 5;
 
   constructor(
     private categoryService: CategoryService,
@@ -26,15 +29,42 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
     this.categories = this.categoryService.getCategories();
     this.tableColumns = this.categoryService.getPostProperties();
+    this.pageChanged(this.currentPage);
+  }
+  pageChanged(page: number): void {
+    const startIndex = (page - 1) * this.dataPerPage;
+    const endIndex = startIndex + this.dataPerPage;
+    this.pagedData = this.categories.slice(startIndex, endIndex);
+    this.currentPage = page;
+    if (this.pagedData.length === 0 && this.currentPage > 1)
+      this.previousPage();
   }
 
-  performDelete($event:Number){
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.pageChanged(this.currentPage);
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.pageChanged(this.currentPage);
+    }
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.categories.length / this.dataPerPage);
+  }
+
+  performDelete($event: Number) {
     this.categoryService.deleteCategory($event);
-    this.categories=this.categoryService.getCategories();
+    this.categories = this.categoryService.getCategories();
 
   }
 
-  performDetails($event:Number){
+  performDetails($event: Number) {
     this.router.navigate(['categorylist', $event]);
   }
 
