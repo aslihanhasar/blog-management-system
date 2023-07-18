@@ -1,10 +1,20 @@
 # BLOG MANAGEMENT SYSTEM
 
-### This project is an Angular application that demonstrates the usage of components, services, and routing in Angular framework.
+### This is a blog management system developed with Angular that allows users to create, manage, and publish blog posts. The system provides various features, including user management, post management, category management, and comment management. Users can perform operations such as adding, editing, and deleting data within the system.
 
 ---
 
 ## PROJECT DETAILS
+
+User Management: The system allows administrators to manage users, including creating new users, editing user information, and deleting users. User data includes details such as username, email, creation date, and account status.
+
+Post Management: Users can create new blog posts, edit existing posts, and delete posts. Each blog post contains information such as the title, content, creation date, view count, publication status, associated user, and category.
+
+Category Management: The system enables users to manage blog categories. Users can add new categories, edit category details, and delete categories. Each category is defined by a unique ID, name, and creation date.
+
+Comment Management: Users can view and manage comments on blog posts. The system provides functionality to display comments associated with each post, including details such as the comment ID, associated post ID, user ID, comment content, creation date, and confirmation status.
+
+Filtering and Pagination: The system supports filtering capabilities for post listing pages based on user ID, post ID, and category ID. The filtered results are reflected in the URL using query parameters. Additionally, all listing pages include pagination for easy navigation and improved user experience.
 
 The project structure is organized as follows:
 
@@ -41,6 +51,14 @@ Install the project dependencies using npm:
 npm install
 
 ```
+
+Start the development server:
+
+```
+ng serve
+
+```
+
 ---
 
 ## Author
