@@ -23,7 +23,7 @@ Here is an overview of the important files and directories:
 ## Installation
 
 Clone the project.
-> [](https://github.com/aslihanhasar/blog-management-system.git](https://github.com/aslihanhasar/blog-management-system.git)
+> [](https://github.com/aslihanhasar/blog-management-system.git)
 
 ---
 
